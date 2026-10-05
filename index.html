@@ -1,56 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SportSurge - Live Sports Streaming</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-        h1 {
-            color: #ff4757;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background: #1e1e1e;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-        .btn {
-            display: inline-block;
-            background: #ff4757;
-            color: white;
-            padding: 12px 25px;
-            margin: 10px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .btn:hover {
-            background: #ff6b81;
-        }
-    </style>
+<meta name="msvalidate.01" content="37E9EC9FE18AF95F35A76EA5892A11DE" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sportsurge - Your Ultimate Guide to Sports Schedule & Information</title>
+  <meta name="description" content="Welcome to Sportsurge, your go-to information hub for NFL, NBA, UFC, F1, and MLB game schedules and sports data.">
+  <link rel="canonical" href="https://mokbbirhosen21240-collab.github.io/streameast-v4/" />
+  
+  <meta name="robots" content="index, follow">
+  <meta property="og:site_name" content="Sportsurge">
+  <meta property="og:title" content="Sportsurge - Sports Schedule & Information Hub">
+  <meta property="og:description" content="Find comprehensive schedules and data for all major sports.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mokbbirhosen21240-collab.github.io/streameast-v4/">
+  <meta property="og:locale" content="en_US">
+  
+  <link rel="icon" href="/favicon.png" type="image/x-icon">
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --accent: #3a86ff;
+      --accent-2: #00b4d8;
+      --border: #30363d;
+      --font-primary: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --text-primary: #ffffff;
+      --accent-gradient: linear-gradient(135deg, #3a86ff 0%, #00b4d8 100%);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html, body {
+      height: 100%;
+      font-family: var(--font-primary);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    a:hover {
+      color: var(--accent-2);
+    }
+    
+    .main-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(13, 17, 23, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    
+    .brand {
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .nav-menu {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    
+    .nav-menu a {
+      padding: 0.75rem 1.25rem;
+      border-radius: 12px;
+      color: var(--text);
+      font-weight: 600;
+    }
+    
+    .nav-menu a:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--accent);
+    }
+    
+    .hero {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--panel) 100%);
+      border-radius: 22px;
+      padding: 3rem 2rem;
+      margin: 3rem 0;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+    
+    h1 {
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      margin-bottom: 2rem;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin: 1rem 0;
+    }
+    
+    .categories-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    
+    .category-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1.5rem;
+      background: var(--panel);
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .category-card:hover {
+      transform: translateY(-0.5rem);
+      border-color: var(--accent);
+    }
+    
+    .category-card .icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .category-card span {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      text-transform: uppercase;
+    }
+    
+    .article-container {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 3rem;
+      background: var(--panel);
+      border-radius: 1.5rem;
+      border: 1px solid var(--border);
+    }
+    
+    .article-container p {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    
+    footer {
+      margin-top: 6rem;
+      padding: 4rem 0;
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+    }
+    
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      color: var(--muted);
+    }
+    
+    .disclaimer {
+      max-width: 980px;
+      margin: 0 auto 3rem;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 2rem;
+      border-radius: 1rem;
+      border-left: 0.25rem solid var(--accent);
+      text-align: left;
+    }
+    
+    .footer-menu {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    
+    .footer-menu li a {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .categories-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Welcome to SportSurge</h1>
-        <p>Watch Live Sports Streams: NFL, NBA, NHL, Soccer, and more!</p>
-        
-        <div style="margin-top: 30px;">
-            <a href="#" class="btn">Watch NFL Live</a>
-            <a href="#" class="btn">Watch NBA Live</a>
-            <a href="#" class="btn">Watch Soccer Live</a>
-        </div>
+  <header class="main-header">
+    <div class="container nav">
+      <div class="nav-left">
+        <div class="brand">SPORTSURGE</div>
+        <nav class="nav-menu">
+          <a href="/american-football">NFL</a>
+          <a href="/basketball">NBA</a>
+          <a href="/hockey">NHL</a>
+          <a href="/baseball">MLB</a>
+          <a href="/football">FOOTBALL</a>
+          <a href="/fight">FIGHT</a>
+        </nav>
+      </div>
     </div>
+  </header>
 
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Sportsurge: The Best Sports Information & Schedule Hub</h1>
+        <p>Explore match schedules, live scores, team data, and updates for NBA, NFL, MLB, NHL, and soccer.</p>
+      </section>
+
+      <section class="categories-container">
+        <h2 class="section-title">All Sports Categories</h2>
+        <div class="categories-grid" id="categories-grid">
+          <a class="category-card" href="/nfl.com">
+            <div class="icon">🏈</div>
+            <span>American Football</span>
+          </a>
+          <a class="category-card" href="/football.com">
+            <div class="icon">⚽</div>
+            <span>Football</span>
+          </a>
+          <a class="category-card" href="/basketball.com">
+            <div class="icon">🏀</div>
+            <span>Basketball</span>
+          </a>
+          <a class="category-card" href="/hockey.com">
+            <div class="icon">🏒</div>
+            <span>Hockey</span>
+          </a>
+          <a class="category-card" href="/baseball.com">
+            <div class="icon">⚾</div>
+            <span>Baseball</span>
+          </a>
+          <a class="category-card" href="/f1.com">
+            <div class="icon">🏎️</div>
+            <span>Motor-sports</span>
+          </a>
+          <a class="category-card" href="/fight.com">
+            <div class="icon">🥊</div>
+            <span>Fight</span>
+          </a>
+          <a class="category-card" href="/tennis.com">
+            <div class="icon">🎾</div>
+            <span>Tennis</span>
+          </a>
+          <a class="category-card" href="/rugby.com">
+            <div class="icon">🏉</div>
+            <span>Rugby</span>
+          </a>
+          <a class="category-card" href="/golf.com">
+            <div class="icon">⛳</div>
+            <span>Golf</span>
+          </a>
+          <a class="category-card" href="/billiards.com">
+            <div class="icon">🎱</div>
+            <span>Billiards</span>
+          </a>
+          <a class="category-card" href="/afl.com">
+            <div class="icon">🏉</div>
+            <span>AFL</span>
+          </a>
+          <a class="category-card" href="/darts.com">
+            <div class="icon">🎯</div>
+            <span>Darts</span>
+          </a>
+          <a class="category-card" href="/cricket.com">
+            <div class="icon">🏏</div>
+            <span>Cricket</span>
+          </a>
+          <a class="category-card" href="/other.com">
+            <div class="icon">🏆</div>
+            <span>Other</span>
+          </a>
+        </div>
+      </section>
+
+      <article class="article-container">
+        <h2>What do you want to explore today?</h2>
+        <p>Sportsurge helps fans from around the world stay updated with schedules, fixtures, and game insights.</p>
+        
+        <h2>Real-Time Stats and Live Data</h2>
+        <p>We act as a comprehensive sports data hub, providing live scores, team lineups, and real-time schedules for sports enthusiasts.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="disclaimer">
+        <p>This website strictly acts as a directory of information and sports schedules. We utilize standard web crawling and indexing techniques to aggregate publicly available data.</p>
+      </div>
+      <ul class="footer-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/About/">About</a></li>
+        <li><a href="/Terms/">Terms</a></li>
+        <li><a href="/Privacy/">Privacy</a></li>
+        <li><a href="/Disclaimer/">Disclaimer</a></li>
+        <li><a href="/DMCA/">DMCA</a></li>
+        <li><a href="/Contact/">Contact Us</a></li>
+      </ul>
+      <p>© <span id="year"></span> sportsurge.nflbite.lol — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
